@@ -178,8 +178,7 @@ public class TransactionService {
     @Transactional
     public List<Transaction> getTransactionsByUserId(Long userId) {
         List<Account> accounts = accountRepository.findByOwnerID(userId);
-        List<Transaction> transactions = transactionRepository.findByFromAccountIdIn(accounts);
-        return transactions;
+        return transactionRepository.findByAccounts(accounts);
     }
 
     public Double calculateInstallment(Double loanAmount, Double annualInterestRate, Integer numberOfInstallments) {
