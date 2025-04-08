@@ -282,7 +282,7 @@ func TestCreateActuary(t *testing.T) {
 	}
 
 	resp := makeRequest(t, "POST", "/actuaries", actuaryDTO, nil)
-	assert.Equal(t, 200, resp.StatusCode)
+	assert.Equal(t, 201, resp.StatusCode)
 
 	result := parseResponse(t, resp)
 	assert.True(t, result.Success)
@@ -372,7 +372,7 @@ func TestCreateOrder(t *testing.T) {
 		"X-Test-Auth":       "true",
 		"X-Test-Department": "AGENT",
 	})
-	assert.Equal(t, 200, resp.StatusCode)
+	assert.Equal(t, 201, resp.StatusCode)
 
 	result := parseResponse(t, resp)
 	assert.True(t, result.Success)
